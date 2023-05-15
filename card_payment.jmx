@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Core_Payment_API_Collection" enabled="true">
+      <stringProp name="TestPlan.comments">Collection of All Core Payment API</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="SIT_Execution_Data" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Env_Config_Data_Path" elementType="Argument">
+            <stringProp name="Argument.name">Env_Config_Data_Path</stringProp>
+            <stringProp name="Argument.value">Test_Data/Config/SIT_Config.csv</stringProp>
+            <stringProp name="Argument.desc">SIT absolute path for test environment variables</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Card_Payments_Test_Data_SV" elementType="Argument">
+            <stringProp name="Argument.name">Card_Payments_Test_Data_SV</stringProp>
+            <stringProp name="Argument.value">Test_Data/Test_Cases/Card_Payments_SV.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ReportTimeStamp" elementType="Argument">
+            <stringProp name="Argument.name">ReportTimeStamp</stringProp>
+            <stringProp name="Argument.value">${__time(dd-mm-yyyy HHmmss)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Accounts_Test_Data" elementType="Argument">
+            <stringProp name="Argument.name">Accounts_Test_Data</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_SIT/Every_Day_Accounts.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Impersonal_Accounts" elementType="Argument">
+            <stringProp name="Argument.name">Impersonal_Accounts</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_SIT/Impersonal_Accounts.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Every_Day_Business_Account" elementType="Argument">
+            <stringProp name="Argument.name">Every_Day_Business_Account</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_SIT/Every_Day_Business_Account.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Other_Banks_Accounts" elementType="Argument">
+            <stringProp name="Argument.name">Other_Banks_Accounts</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_SIT/Other_Banks_Accounts.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">Test Data Controler for different environment and configurations without changing the scripts.</stringProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT_Execution_Data" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Env_Config_Data_Path" elementType="Argument">
+            <stringProp name="Argument.name">Env_Config_Data_Path</stringProp>
+            <stringProp name="Argument.value">Test_Data/Config/UAT_Config.csv</stringProp>
+            <stringProp name="Argument.desc">SIT absolute path for test environment variables</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Card_Payments_Test_Data_SV" elementType="Argument">
+            <stringProp name="Argument.name">Card_Payments_Test_Data_SV</stringProp>
+            <stringProp name="Argument.value">Test_Data/Test_Cases/Card_Payments_SV.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ReportTimeStamp" elementType="Argument">
+            <stringProp name="Argument.name">ReportTimeStamp</stringProp>
+            <stringProp name="Argument.value">${__time(dd-mm-yyyy HHmmss)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Accounts_Test_Data" elementType="Argument">
+            <stringProp name="Argument.name">Accounts_Test_Data</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_UAT/Every_Day_Accounts.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Impersonal_Accounts" elementType="Argument">
+            <stringProp name="Argument.name">Impersonal_Accounts</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_UAT/Impersonal_Accounts.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Every_Day_Business_Account" elementType="Argument">
+            <stringProp name="Argument.name">Every_Day_Business_Account</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_UAT/Every_Day_Business_Account.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Other_Banks_Accounts" elementType="Argument">
+            <stringProp name="Argument.name">Other_Banks_Accounts</stringProp>
+            <stringProp name="Argument.value">Test_Data/Accounts_UAT/Other_Banks_Accounts.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">Test Data Controler for different environment and configurations without changing the scripts.</stringProp>
+      </Arguments>
+      <hashTree/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Re-usable Microservice Payloads" enabled="false">
+        <stringProp name="TestPlan.comments">Do not enable this, Contains the API payloads scripts for running different test scenarios</stringProp>
+      </TestFragmentController>
+      <hashTree>
+        <SwitchController guiclass="SwitchControllerGui" testclass="SwitchController" testname="Card Transactions (SV)" enabled="true">
+          <stringProp name="TestPlan.comments">Collection of all card related transactions</stringProp>
+          <stringProp name="SwitchController.value">${action}</stringProp>
+        </SwitchController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Card_Payments" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${TransactionName}" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">[&#xd;
+    {&#xd;
+        &quot;amount&quot;: ${amount},&#xd;
+        &quot;currencyCode&quot;: &quot;${CURRENCY_CODE_ACCOUNT}&quot;,&#xd;
+        &quot;customInformation&quot;: [&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;MESSAGE_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${MESSAGE_TYPE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;PRIMARY_ACCOUNT_NUMBER&quot;,&#xd;
+                &quot;value&quot;: &quot;${PRIMARY_ACCOUNT_NUMBER}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;PROCESSING_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${PROCESSING_CODE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;AMOUNT_TRANSACTION&quot;,&#xd;
+                &quot;value&quot;: &quot;${AMOUNT_TRANSACTION}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;AMOUNT_ACCOUNT&quot;,&#xd;
+                &quot;value&quot;: &quot;${AMOUNT_ACCOUNT}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CONVERSION_RATE_ACCOUNT&quot;,&#xd;
+                &quot;value&quot;: &quot;${CONVERSION_RATE_ACCOUNT}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SYSTEMS_TRACE_AUDIT_NUMBER&quot;,&#xd;
+                &quot;value&quot;: &quot;${__Random(00000000,99999999)}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;DATE_TIME_LOCAL_TRANSACTION&quot;,&#xd;
+                &quot;value&quot;: &quot;${__time(dd-MM-yyyy HH:mm:ss)}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SETTLEMENT_DATE&quot;,&#xd;
+                &quot;value&quot;: &quot;${__timeShift(yyy-MM-dd,,P1DT3H4M,, c1)}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;MERCHANT_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${MERCHANT_TYPE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+            	 &quot;customFieldID&quot;: &quot;ACQUIRING_INSTIT_COUNTRY_CODE&quot;,&#xd;
+            	 &quot;value&quot;: &quot;${ACQUIRING_INSTIT_COUNTRY_CODE}&quot;,&#xd;
+            	 &quot;customFieldSetGroupIndex&quot;: null&#xd;
+        	  },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POINT_OF_SERVICE_ENTRY_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${POINT_OF_SERVICE_ENTRY_CODE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardDataInputCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardDataInputCapability}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderAuthCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderAuthCapability}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardCaptureCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardCaptureCapability}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_OperatingEnvironment&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_OperatingEnvironment}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderPresenceIndicator&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderPresenceIndicator}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardPresent&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardPresent}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardDataInputmode&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardDataInputmode}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderAuthMethod&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderAuthMethod}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderAuthEntity&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderAuthEntity}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardDataOutputCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardDataOutputCapability}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_TerminalOutputCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_TerminalOutputCapability}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_PINCaptureCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_PINCaptureCapability}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ACQUIRING_INSTITUTION_ID_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${ACQUIRING_INSTITUTION_ID_CODE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;RETRIEVAL_REFERENCE_NUMBER&quot;,&#xd;
+                &quot;value&quot;: &quot;${__Random(000000000000,999999999999)}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ORIGIN_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${ORIGIN_CODE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CARD_ACCEPTOR_TERMINAL_ID&quot;,&#xd;
+                &quot;value&quot;: &quot;${CARD_ACCEPTOR_TERMINAL_ID}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CARD_ACCEPTOR_MERCHANT_ID&quot;,&#xd;
+                &quot;value&quot;: &quot;${CARD_ACCEPTOR_MERCHANT_ID}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CARD_ACCEPTOR_NAME_LOCATION&quot;,&#xd;
+                &quot;value&quot;: &quot;${CARD_ACCEPTOR_NAME_LOCATION}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_TRANSACTION_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${SVFE_TRANSACTION_TYPE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_TERMINAL_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${SVFE_TERMINAL_TYPE}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_UTRNNO&quot;,&#xd;
+                &quot;value&quot;: &quot;${__time(,)}${counter_value}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SFVE_ORIGINAL_UTRNNO&quot;,&#xd;
+                &quot;value&quot;: &quot;${__time(,)}${counter_value}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CURRENCY_CODE_TRANSACTION&quot;,&#xd;
+                &quot;value&quot;: &quot;${CURRENCY_CODE_TRANSACTION}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CURRENCY_CODE_ACCOUNT&quot;,&#xd;
+                &quot;value&quot;: &quot;${CURRENCY_CODE_ACCOUNT}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ISSUER_FEE_AMOUNT_CURRENCY&quot;,&#xd;
+                &quot;value&quot;: &quot;${ISSUER_FEE_AMOUNT_CURRENCY}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_ISSUER_INSTIT_IDENTIFIER&quot;,&#xd;
+                &quot;value&quot;: &quot;${SVFE_ISSUER_INSTIT_IDENTIFIER}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ACCOUNT_IDENTIFICATION&quot;,&#xd;
+                &quot;value&quot;: &quot;${ACCOUNT_IDENTIFICATION}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ACCOUNT_IDENTIFICATION_@&quot;,&#xd;
+                &quot;value&quot;: &quot;${ACCOUNT_IDENTIFICATION_@}&quot;,&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            }&#xd;
+        ]&#xd;
+    }&#xd;
+]</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${WSO2_IP_Card}</stringProp>
+              <stringProp name="HTTPSampler.port">${Port_Number}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${Http_Protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${Card_Path}/${DebitAccountNo}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager Load Balancer" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Caller-Id</stringProp>
+                    <stringProp name="Header.value">Core</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Correlation-Id</stringProp>
+                    <stringProp name="Header.value">fc716c5d-621a-4ec8-b5b2-4a1b74409cf9</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Postman-Token</stringProp>
+                    <stringProp name="Header.value">bdebeb96-682e-4d4d-8a5f-d289a2cef7c4</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Timestamp</stringProp>
+                    <stringProp name="Header.value">1234213432</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Channel.Smartapp</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">cache-control</stringProp>
+                    <stringProp name="Header.value">no-cache</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">channel</stringProp>
+                    <stringProp name="Header.value">Channel.core</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${__property(AccessTokenCard)}</stringProp>
+                  </elementProp>
+                </collectionProp>
+                <stringProp name="TestPlan.comments">Enable if running through a Load Balancer</stringProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Return Code Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$.returnCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">0</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">false</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Card Payments Scripts" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import java.util.Random;   
+/*
+ * Get Transaction Amount from Datasheet or generate randon amount
+ */
+ String MambuTransactionAmount = vars.get(&quot;amount&quot;);
+ String AMOUNT_TRANSACTION = vars.get(&quot;AMOUNT_TRANSACTION&quot;);
+ String AMOUNT_ACCOUNT = vars.get(&quot;AMOUNT_ACCOUNT&quot;);
+ Random random = new Random();   
+if(MambuTransactionAmount == &quot;RandomValue&quot;){
+	String TransactionAmount= 10 + random.nextInt(50);   
+	vars.put(&quot;amount&quot;, TransactionAmount);
+	vars.put(&quot;AMOUNT_TRANSACTION&quot;, TransactionAmount);
+	vars.put(&quot;AMOUNT_ACCOUNT&quot;, TransactionAmount);
+}
+
+/*
+ *  Check the type of Account required for the transaction and select from the data sheet of accounts
+ *  Choose from EveryDayAccount, ImpersonalAccount and GoalSaveAccount
+ */
+ String DebitAccountId; //= vars.get(&quot;EFT_ORIGIN_ACCOUNT_NUMBER&quot;);
+ //Check if the ACCOUNT_IDENTIFICATION is empty and then assign the ACCOUNT_IDENTIFICATION_@ to the ACCOUNT_IDENTIFICATION_Final variable used in the URL of the reqest
+ if(vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;) ==&quot;&quot;){
+	DebitAccountId = vars.get(&quot;ACCOUNT_IDENTIFICATION_@&quot;);
+ }else{
+	DebitAccountId = vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;);
+ }
+ 
+//Set the Debit account based on the account type.
+ switch(DebitAccountId){
+ 	case &quot;EveryDayAccountDebit&quot;:
+		DebitAccountNo = vars.get(&quot;EveryDayAccountDebit&quot;);
+ 	break;
+ 	case &quot;EveryDayBusinessAccountDebit&quot;:
+		DebitAccountNo = vars.get(&quot;EveryDayBusinessAccountDebit&quot;);
+ 	break;
+ 	case &quot;ImpersonalAccountDebit&quot;:
+ 		DebitAccountNo = vars.get(&quot;ImpersonalAccountDebit&quot;);
+	break;
+	case &quot;OtherBanksAccountDebit&quot;:
+		DebitAccountNo = vars.get(&quot;OtherBanksAccountDebit&quot;);
+	break;
+	case &quot;ShadowEverydayAccountDebit&quot;:
+		DebitAccountNo = vars.get(&quot;ShadowEverydayAccountDebit&quot;);
+	break;
+	default :
+		DebitAccountNo = vars.get(&quot;EFT_ORIGIN_ACCOUNT_NUMBER&quot;);
+ }
+ vars.put(&quot;DebitAccountNo&quot;, DebitAccountNo);
+ if(vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;) ==&quot;&quot;){
+	vars.put(&quot;ACCOUNT_IDENTIFICATION_@&quot;, DebitAccountNo);
+ }else{
+	vars.put(&quot;ACCOUNT_IDENTIFICATION&quot;, DebitAccountNo);
+ }
+ 
+ 
+
+/*
+ *  Check the type of Account required for the transaction and select from the data sheet of accounts
+ *  Choose from EveryDayAccount, ImpersonalAccount and GoalSaveAccount
+ *
+
+//Check if the ACCOUNT_IDENTIFICATION is empty and then assign the ACCOUNT_IDENTIFICATION_@ to the ACCOUNT_IDENTIFICATION_Final variable used in the URL of the reqest
+if(vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;) ==&quot;&quot;){
+	String DebitAccountId = vars.get(&quot;ACCOUNT_IDENTIFICATION_@&quot;);
+	//Check the debited account
+	 if(DebitAccountId == &quot;ImpersonalAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;ImpersonalAccountDebit&quot;);
+	 }
+	 else if(DebitAccountId == &quot;EveryDayBusinessAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;EveryDayBusinessAccountDebit&quot;);
+	 }else{
+	 	DebitAccountNo =vars.get(&quot;EveryDayAccountDebit&quot;);
+	 }
+	vars.put(&quot;ACCOUNT_IDENTIFICATION_@&quot;, DebitAccountNo);
+	vars.put(&quot;DebitAccountNo&quot;, DebitAccountNo);
+}else{
+	String DebitAccountId = vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;);
+	//Check the debited account
+	 if(DebitAccountId == &quot;ImpersonalAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;ImpersonalAccountDebit&quot;);
+	 }
+	 else if(DebitAccountId == &quot;EveryDayBusinessAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;EveryDayBusinessAccountDebit&quot;);
+	 }else{
+	 	DebitAccountNo =vars.get(&quot;EveryDayAccountDebit&quot;);
+	 }
+	vars.put(&quot;ACCOUNT_IDENTIFICATION&quot;, DebitAccountNo);
+	vars.put(&quot;DebitAccountNo&quot;, DebitAccountNo);
+}*/
+
+//customFieldSetGroupIndex
+String customFieldSetGroupIndex = &quot;&quot;;
+String TransactionName = vars.get(&quot;TransactionName&quot;);
+if(TransactionName != &quot;ATM Non financial balance Inquiry MTI 0200 - International&quot; &amp;&amp; TransactionName != &quot;ATM Non financial balance Inquiry MTI 0200 - Domestic&quot; ){
+	 customFieldSetGroupIndex = &apos;&quot;customFieldSetGroupIndex&quot;: null&apos;;
+}
+ vars.put(&quot;customFieldSetGroupIndex&quot;, customFieldSetGroupIndex);
+
+
+//Trim the POINT_OF_SERVICE_ENTRY_CODE String and create new variables
+String POINT_OF_SERVICE_ENTRY_CODE = vars.get(&quot;POINT_OF_SERVICE_ENTRY_CODE&quot;);
+
+//Trim the substring on the 1st index
+String POSI_CardDataInputCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(0,1);     
+vars.put(&quot;POSI_CardDataInputCapability&quot;, POSI_CardDataInputCapability);
+//Trim the substring on the 2nd index
+String POSI_CardHolderAuthCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(1,2);     
+vars.put(&quot;POSI_CardHolderAuthCapability&quot;, POSI_CardHolderAuthCapability);
+//Trim the substring on the 3rd index
+String POSI_CardCaptureCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(2,3);     
+vars.put(&quot;POSI_CardCaptureCapability&quot;, POSI_CardCaptureCapability);
+//Trim the substring on the 4th index
+String POSI_OperatingEnvironment = POINT_OF_SERVICE_ENTRY_CODE.substring(3,4);     
+vars.put(&quot;POSI_OperatingEnvironment&quot;, POSI_OperatingEnvironment);
+//Trim the substring on the 5th index
+String POSI_CardHolderPresenceIndicator = POINT_OF_SERVICE_ENTRY_CODE.substring(4,5);     
+vars.put(&quot;POSI_CardHolderPresenceIndicator&quot;, POSI_CardHolderPresenceIndicator);
+//Trim the substring on the 6th index
+String POSI_CardPresent = POINT_OF_SERVICE_ENTRY_CODE.substring(5,6);     
+vars.put(&quot;POSI_CardPresent&quot;, POSI_CardPresent);
+//Trim the substring on the 7th index
+String POSI_CardDataInputmode = POINT_OF_SERVICE_ENTRY_CODE.substring(6,7);     
+vars.put(&quot;POSI_CardDataInputmode&quot;, POSI_CardDataInputmode);
+//Trim the substring on the 8th index
+String POSI_CardHolderAuthMethod = POINT_OF_SERVICE_ENTRY_CODE.substring(7,8);     
+vars.put(&quot;POSI_CardHolderAuthMethod&quot;, POSI_CardHolderAuthMethod);
+//Trim the substring on the 9th index
+String POSI_CardHolderAuthEntity = POINT_OF_SERVICE_ENTRY_CODE.substring(8,9);     
+vars.put(&quot;POSI_CardHolderAuthEntity&quot;, POSI_CardHolderAuthEntity);
+//Trim the substring on the 10th index
+String POSI_CardDataOutputCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(9,10);     
+vars.put(&quot;POSI_CardDataOutputCapability&quot;, POSI_CardDataOutputCapability);
+//Trim the substring on the 11th index
+String POSI_TerminalOutputCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(10,11);     
+vars.put(&quot;POSI_TerminalOutputCapability&quot;, POSI_TerminalOutputCapability);
+//Trim the substring on the 12th index
+String POSI_PINCaptureCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(11,12);     
+vars.put(&quot;POSI_PINCaptureCapability&quot;, POSI_PINCaptureCapability);
+
+
+</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Create Global transactionId" enabled="true">
+                <stringProp name="TestPlan.comments">Create the Transaction ID as a global variable to access on other Requests e.g Mambu</stringProp>
+                <stringProp name="BeanShellAssertion.query">${__setProperty(transactionId, ${transactionId})};</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="transactionId JSON Extractor" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">transactionId</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.transactionIds[*]</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+                <stringProp name="Scope.variable">RTCintToken</stringProp>
+                <stringProp name="TestPlan.comments">Create Global transactionId</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager Core ALB Only" enabled="false">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url">https://internal-core-payment-cluster-private-1215036414.eu-west-1.elb.amazonaws.com</stringProp>
+                    <stringProp name="Authorization.username">devutils</stringProp>
+                    <stringProp name="Authorization.password">tyme$97ital</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+                <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
+                <stringProp name="TestPlan.comments">Enble when running trhough Core ALB directly</stringProp>
+              </AuthManager>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager Core ALB Only" enabled="false">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+                <stringProp name="TestPlan.comments">Enble when running trhough Core ALB directly</stringProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${TransactionName} Mambu gl Journal Entries" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;filterCriteria&quot;: [&#xd;
+    {&#xd;
+      &quot;field&quot;: &quot;transactionId&quot;,&#xd;
+      &quot;operator&quot;: &quot;EQUALS&quot;,&#xd;
+      &quot;secondValue&quot;: null,&#xd;
+      &quot;value&quot;: &quot;${transactionId}&quot;,&#xd;
+      &quot;values&quot;: null&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;sortingCriteria&quot;: {&#xd;
+    &quot;field&quot;: &quot;transactionId&quot;,&#xd;
+    &quot;order&quot;: &quot;ASC&quot;&#xd;
+  }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${Mambu_Endpoint}</stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${Mambu_Journal_Path}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">Verify the transaction on Mambu for Functional Test</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.gui.JSONFormatterGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter" testname="Format Json File" enabled="true"/>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/vnd.mambu.v2+json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url">https://${Mambu_Endpoint}</stringProp>
+                    <stringProp name="Authorization.username">Eugene</stringProp>
+                    <stringProp name="Authorization.password">Rendani@2301</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+                <boolProp name="AuthManager.controlledByThreadGroup">true</boolProp>
+              </AuthManager>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="transaction Amount Assertion" enabled="false">
+                <stringProp name="JSON_PATH">$[*].amount</stringProp>
+                <stringProp name="EXPECTED_VALUE">^[0-9]*$</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="transaction Amount Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$[*].amount</stringProp>
+                <stringProp name="EXPECTED_VALUE">${AMOUNT_ACCOUNT}</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="transactionID Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$[*].transactionId</stringProp>
+                <stringProp name="EXPECTED_VALUE">${transactionId}</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <SwitchController guiclass="SwitchControllerGui" testclass="SwitchController" testname="Card Transactions (NFS)" enabled="true">
+          <stringProp name="TestPlan.comments">Collection of all card related transactions</stringProp>
+          <stringProp name="SwitchController.value">${action}</stringProp>
+        </SwitchController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="NFS_Card_Payments" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${TransactionName}" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">[&#xd;
+    {&#xd;
+        &quot;amount&quot;: ${amount},&#xd;
+        &quot;currencyCode&quot;: &quot;${CURRENCY_CODE_ACCOUNT}&quot;,&#xd;
+        &quot;customInformation&quot;: [&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;MESSAGE_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${MESSAGE_TYPE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;PRIMARY_ACCOUNT_NUMBER&quot;,&#xd;
+                &quot;value&quot;: &quot;${PRIMARY_ACCOUNT_NUMBER}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;PROCESSING_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${PROCESSING_CODE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;AMOUNT_TRANSACTION&quot;,&#xd;
+                &quot;value&quot;: &quot;${AMOUNT_TRANSACTION}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;AMOUNT_ACCOUNT&quot;,&#xd;
+                &quot;value&quot;: &quot;${AMOUNT_TRANSACTION}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CONVERSION_RATE_ACCOUNT&quot;,&#xd;
+                &quot;value&quot;: &quot;${CONVERSION_RATE_ACCOUNT}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SYSTEMS_TRACE_AUDIT_NUMBER&quot;,&#xd;
+                &quot;value&quot;: &quot;${__Random(00000000,99999999)}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;DATE_TIME_LOCAL_TRANSACTION&quot;,&#xd;
+                &quot;value&quot;: &quot;${__time(dd-MM-yyyy HH:mm:ss)}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SETTLEMENT_DATE&quot;,&#xd;
+                &quot;value&quot;: &quot;${__timeShift(yyy-MM-dd,,P1DT3H4M,, c1)}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;MERCHANT_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${MERCHANT_TYPE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POINT_OF_SERVICE_ENTRY_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${POINT_OF_SERVICE_ENTRY_CODE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardDataInputCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardDataInputCapability}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderAuthCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderAuthCapability}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardCaptureCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardCaptureCapability}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_OperatingEnvironment&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_OperatingEnvironment}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderPresenceIndicator&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderPresenceIndicator}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardPresent&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardPresent}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardDataInputmode&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardDataInputmode}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderAuthMethod&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderAuthMethod}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardHolderAuthEntity&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardHolderAuthEntity}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_CardDataOutputCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_CardDataOutputCapability}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_TerminalOutputCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_TerminalOutputCapability}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;POSI_PINCaptureCapability&quot;,&#xd;
+                &quot;value&quot;: &quot;${POSI_PINCaptureCapability}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ACQUIRING_INSTITUTION_ID_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${ACQUIRING_INSTITUTION_ID_CODE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;RETRIEVAL_REFERENCE_NUMBER&quot;,&#xd;
+                &quot;value&quot;: &quot;${__Random(000000000000,999999999999)}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ORIGIN_CODE&quot;,&#xd;
+                &quot;value&quot;: &quot;${ORIGIN_CODE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CARD_ACCEPTOR_TERMINAL_ID&quot;,&#xd;
+                &quot;value&quot;: &quot;${CARD_ACCEPTOR_TERMINAL_ID}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CARD_ACCEPTOR_MERCHANT_ID&quot;,&#xd;
+                &quot;value&quot;: &quot;${CARD_ACCEPTOR_MERCHANT_ID}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CARD_ACCEPTOR_NAME_LOCATION&quot;,&#xd;
+                &quot;value&quot;: &quot;${CARD_ACCEPTOR_NAME_LOCATION}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_TRANSACTION_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${SVFE_TRANSACTION_TYPE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_TERMINAL_TYPE&quot;,&#xd;
+                &quot;value&quot;: &quot;${SVFE_TERMINAL_TYPE}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_UTRNNO&quot;,&#xd;
+                &quot;value&quot;: &quot;${__time(,)}${counter_value}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SFVE_ORIGINAL_UTRNNO&quot;,&#xd;
+                &quot;value&quot;: &quot;${__time(,)}${counter_value}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CURRENCY_CODE_TRANSACTION&quot;,&#xd;
+                &quot;value&quot;: &quot;${CURRENCY_CODE_TRANSACTION}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;CURRENCY_CODE_ACCOUNT&quot;,&#xd;
+                &quot;value&quot;: &quot;${CURRENCY_CODE_ACCOUNT}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;SVFE_ISSUER_INSTIT_IDENTIFIER&quot;,&#xd;
+                &quot;value&quot;: &quot;${SVFE_ISSUER_INSTIT_IDENTIFIER}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ACCOUNT_IDENTIFICATION&quot;,&#xd;
+                &quot;value&quot;: &quot;${ACCOUNT_IDENTIFICATION}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;customFieldID&quot;: &quot;ACCOUNT_IDENTIFICATION_@&quot;,&#xd;
+                &quot;value&quot;: &quot;${ACCOUNT_IDENTIFICATION_@}&quot;&#xd;
+                ${customFieldSetGroupIndex}&#xd;
+            }&#xd;
+        ]&#xd;
+    }&#xd;
+]</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${WSO2_IP_Card}</stringProp>
+              <stringProp name="HTTPSampler.port">${Port_Number}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${Http_Protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${Card_NFS_Path}/${DebitAccountNo}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager Load Balancer" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${__property(AccessTokenCard)}</stringProp>
+                  </elementProp>
+                </collectionProp>
+                <stringProp name="TestPlan.comments">Enable if running through a Load Balancer</stringProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Return Code Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$.returnCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">0</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">false</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="payment Status Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$.returnStatus</stringProp>
+                <stringProp name="EXPECTED_VALUE">Ok.</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">false</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="uniqueIdentifier Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$.uniqueIdentifier</stringProp>
+                <stringProp name="EXPECTED_VALUE">^[0-9]*$</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="balance Assertion" enabled="true">
+                <stringProp name="JSON_PATH">$.balance</stringProp>
+                <stringProp name="EXPECTED_VALUE">^[+-]?([0-9]+(\.[0-9]+)?|\.[0-9]+)$</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Card Payments Scripts" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import java.util.Random;   
+/*
+ * Get Transaction Amount from Datasheet or generate randon amount
+ */
+ String TransactionAmount = vars.get(&quot;amount&quot;);
+ Random random = new Random();   
+if(TransactionAmount == &quot;RandomValue&quot;){
+	TransactionAmount= random.nextInt(20);   
+	vars.put(&quot;amount&quot;, TransactionAmount);
+}
+/*
+ *  Check the type of Account required for the transaction and select from the data sheet of accounts
+ *  Choose from EveryDayAccount, ImpersonalAccount and GoalSaveAccount
+ */
+
+//Check if the ACCOUNT_IDENTIFICATION is empty and then assign the ACCOUNT_IDENTIFICATION_@ to the ACCOUNT_IDENTIFICATION_Final variable used in the URL of the reqest
+if(vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;) ==&quot;&quot;){
+	String DebitAccountId = vars.get(&quot;ACCOUNT_IDENTIFICATION_@&quot;);
+	//Check the debited account
+	 if(DebitAccountId == &quot;ImpersonalAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;ImpersonalAccountDebit&quot;);
+	 }
+	 else if(DebitAccountId == &quot;EveryDayBusinessAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;EveryDayBusinessAccountDebit&quot;);
+	 }else{
+	 	DebitAccountNo =vars.get(&quot;EveryDayAccountDebit&quot;);
+	 }
+	vars.put(&quot;ACCOUNT_IDENTIFICATION_@&quot;, DebitAccountNo);
+	vars.put(&quot;DebitAccountNo&quot;, DebitAccountNo);
+}else{
+	String DebitAccountId = vars.get(&quot;ACCOUNT_IDENTIFICATION&quot;);
+	//Check the debited account
+	 if(DebitAccountId == &quot;ImpersonalAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;ImpersonalAccountDebit&quot;);
+	 }
+	 else if(DebitAccountId == &quot;EveryDayBusinessAccount&quot;){
+	 	DebitAccountNo = vars.get(&quot;EveryDayBusinessAccountDebit&quot;);
+	 }else{
+	 	DebitAccountNo =vars.get(&quot;EveryDayAccountDebit&quot;);
+	 }
+	vars.put(&quot;ACCOUNT_IDENTIFICATION&quot;, DebitAccountNo);
+	vars.put(&quot;DebitAccountNo&quot;, DebitAccountNo);
+}
+
+//customFieldSetGroupIndex
+String customFieldSetGroupIndex = &quot;&quot;;
+String TransactionName = vars.get(&quot;TransactionName&quot;);
+if(TransactionName != &quot;ATM Non financial balance Inquiry MTI 0200 - International&quot; &amp;&amp; TransactionName != &quot;ATM Non financial balance Inquiry MTI 0200 - Domestic&quot; ){
+	 customFieldSetGroupIndex = &apos;&quot;customFieldSetGroupIndex&quot;: null&apos;;
+}
+ vars.put(&quot;customFieldSetGroupIndex&quot;, customFieldSetGroupIndex);
+
+
+//Trim the POINT_OF_SERVICE_ENTRY_CODE String and create new variables
+String POINT_OF_SERVICE_ENTRY_CODE = vars.get(&quot;POINT_OF_SERVICE_ENTRY_CODE&quot;);
+
+//Trim the substring on the 1st index
+String POSI_CardDataInputCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(0,1);     
+vars.put(&quot;POSI_CardDataInputCapability&quot;, POSI_CardDataInputCapability);
+//Trim the substring on the 2nd index
+String POSI_CardHolderAuthCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(1,2);     
+vars.put(&quot;POSI_CardHolderAuthCapability&quot;, POSI_CardHolderAuthCapability);
+//Trim the substring on the 3rd index
+String POSI_CardCaptureCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(2,3);     
+vars.put(&quot;POSI_CardCaptureCapability&quot;, POSI_CardCaptureCapability);
+//Trim the substring on the 4th index
+String POSI_OperatingEnvironment = POINT_OF_SERVICE_ENTRY_CODE.substring(3,4);     
+vars.put(&quot;POSI_OperatingEnvironment&quot;, POSI_OperatingEnvironment);
+//Trim the substring on the 5th index
+String POSI_CardHolderPresenceIndicator = POINT_OF_SERVICE_ENTRY_CODE.substring(4,5);     
+vars.put(&quot;POSI_CardHolderPresenceIndicator&quot;, POSI_CardHolderPresenceIndicator);
+//Trim the substring on the 6th index
+String POSI_CardPresent = POINT_OF_SERVICE_ENTRY_CODE.substring(5,6);     
+vars.put(&quot;POSI_CardPresent&quot;, POSI_CardPresent);
+//Trim the substring on the 7th index
+String POSI_CardDataInputmode = POINT_OF_SERVICE_ENTRY_CODE.substring(6,7);     
+vars.put(&quot;POSI_CardDataInputmode&quot;, POSI_CardDataInputmode);
+//Trim the substring on the 8th index
+String POSI_CardHolderAuthMethod = POINT_OF_SERVICE_ENTRY_CODE.substring(7,8);     
+vars.put(&quot;POSI_CardHolderAuthMethod&quot;, POSI_CardHolderAuthMethod);
+//Trim the substring on the 9th index
+String POSI_CardHolderAuthEntity = POINT_OF_SERVICE_ENTRY_CODE.substring(8,9);     
+vars.put(&quot;POSI_CardHolderAuthEntity&quot;, POSI_CardHolderAuthEntity);
+//Trim the substring on the 10th index
+String POSI_CardDataOutputCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(9,10);     
+vars.put(&quot;POSI_CardDataOutputCapability&quot;, POSI_CardDataOutputCapability);
+//Trim the substring on the 11th index
+String POSI_TerminalOutputCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(10,11);     
+vars.put(&quot;POSI_TerminalOutputCapability&quot;, POSI_TerminalOutputCapability);
+//Trim the substring on the 12th index
+String POSI_PINCaptureCapability = POINT_OF_SERVICE_ENTRY_CODE.substring(11,12);     
+vars.put(&quot;POSI_PINCaptureCapability&quot;, POSI_PINCaptureCapability);
+
+
+</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Environment Config Data" enabled="true">
+        <stringProp name="filename">${Env_Config_Data_Path}</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Everyday_Account_Test_Data" enabled="true">
+        <stringProp name="filename">${Accounts_Test_Data}</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="TestPlan.comments">Read all the Everyday Accounts</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Impersonal_Account_Test_Data" enabled="true">
+        <stringProp name="filename">${Impersonal_Accounts}</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="TestPlan.comments">Read all the Impersonal Accounts</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Business_Account_Test_Data" enabled="true">
+        <stringProp name="filename">${Every_Day_Business_Account}</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="TestPlan.comments">Read all the Business Accounts</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Off_Us_Accounts_Test_Data" enabled="true">
+        <stringProp name="filename">${Other_Banks_Accounts}</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="TestPlan.comments">Read all the Business Accounts</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Access_Token" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(Token_Users,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="TestPlan.comments">Enable if using The Load Balancer</stringProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Token Card" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">client_credentials</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${WSO2_IP_Card}</stringProp>
+          <stringProp name="HTTPSampler.port">${Port_Number}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${Http_Protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Gets Token for Both SIT and UAT, Disable the Config Data reader for accurate results.</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+            <collectionProp name="AuthManager.auth_list">
+              <elementProp name="" elementType="Authorization">
+                <stringProp name="Authorization.url">${Http_Protocol}://${WSO2_IP_Card}</stringProp>
+                <stringProp name="Authorization.username">${TokenUsernameCard}</stringProp>
+                <stringProp name="Authorization.password">${TokenPasswordCard}</stringProp>
+                <stringProp name="Authorization.domain"></stringProp>
+                <stringProp name="Authorization.realm"></stringProp>
+              </elementProp>
+            </collectionProp>
+            <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
+          </AuthManager>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.gui.JSONFormatterGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter" testname="jp@gc - JSON Format Post Processor" enabled="true"/>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">AccessTokenCard</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="Scope.variable">RTCintToken</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+            <stringProp name="BeanShellAssertion.query">${__setProperty(AccessTokenCard, ${AccessTokenCard})};</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="Card Payments (SV)" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(number_Of_Users,10)}</stringProp>
+        <stringProp name="Threads initial delay">${__P(start_Delay_Seconds,0)}</stringProp>
+        <stringProp name="Start users count">${__P(ramp_Up_Users,2)}</stringProp>
+        <stringProp name="Start users count burst">0</stringProp>
+        <stringProp name="Start users period">${__P(group_Ramp_Up_Seconds,1)}</stringProp>
+        <stringProp name="Stop users count">1</stringProp>
+        <stringProp name="Stop users period">0</stringProp>
+        <stringProp name="flighttime">${__P(duration_Seconds,1)}</stringProp>
+        <stringProp name="rampUp">0</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+      </kg.apc.jmeter.threads.SteppingThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter_value</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Card_Payments_Test_Data_SV" enabled="true">
+          <stringProp name="filename">${Card_Payments_Test_Data_SV}</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="-- Executing TC : ${__split(${TCName},Keyword,;)} --" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Controller" enabled="true">
+          <stringProp name="ForeachController.inputVal">Keyword</stringProp>
+          <stringProp name="ForeachController.returnVal">action</stringProp>
+          <boolProp name="ForeachController.useSeparator">true</boolProp>
+          <stringProp name="ForeachController.startIndex">0</stringProp>
+          <stringProp name="ForeachController.endIndex">100</stringProp>
+        </ForeachController>
+        <hashTree>
+          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+            <collectionProp name="ModuleController.node_path">
+              <stringProp name="764597751">Test Plan</stringProp>
+              <stringProp name="-1515974116">Core_Payment_API_Collection</stringProp>
+              <stringProp name="-576060282">Re-usable Microservice Payloads</stringProp>
+            </collectionProp>
+          </ModuleController>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.gui.JSONFormatterGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter" testname="Format JSON Response" enabled="true">
+            <stringProp name="TestPlan.comments">Format All JSON Responses</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Save Response Data" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+//get path of current jmeter&apos;s script
+String path = FileServer.getFileServer().getBaseDir(); 
+//get the separator
+String separator = File.separator;
+
+//Create Test Results forlder if not vailable
+String TRFolder =path + separator + &quot;/Test_Results&quot;;
+File TestResults = new File(TRFolder);
+if (!TestResults.exists()) {
+        TestResults.mkdir();
+}
+
+//Create The response folder if not available
+String file =path + separator + &quot;/Test_Results/Card_Payment_SV_&quot;+vars.get(&quot;ReportTimeStamp&quot;);
+File directory = new File(file);
+if (!directory.exists()) {
+        directory.mkdir();
+}
+
+//Create a response file with Request name
+String ResponseFile =file + &quot;/&quot; + ctx.getCurrentSampler().getName()+&quot; &quot;+vars.get(&quot;counter_value&quot;)+&quot;.txt&quot; ;
+
+//Create new file
+FileWriter fWriter = new FileWriter(ResponseFile, true);
+BufferedWriter buff = new BufferedWriter(fWriter);
+
+buff.write(&quot;Sent Request Data : &quot;);
+buff.write(ctx.getCurrentSampler().getArguments().getArgument(0).getValue());
+buff.write(System.getProperty(&quot;line.separator&quot;));
+buff.write(&quot;Response Data : &quot;);
+buff.write(System.getProperty(&quot;line.separator&quot;));
+buff.write(&quot;Response Code : &quot; + ctx.getPreviousResult().getResponseCode());
+buff.write(System.getProperty(&quot;line.separator&quot;));
+buff.write(&quot;Response Headers : &quot; + ctx.getPreviousResult().getResponseHeaders());
+buff.write(System.getProperty(&quot;line.separator&quot;));
+buff.write(&quot;Response Body : &quot; + new String(ctx.getPreviousResult().getResponseData()));
+buff.write(&quot;More complex extraction : &quot; + vars.get(&quot;message&quot;));
+
+buff.close();
+fWriter.close();</stringProp>
+            <stringProp name="TestPlan.comments">For Functional Tests This is helpful for tracebility purpose</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener Datadog" enabled="true">
+        <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="apiKey" elementType="Argument">
+              <stringProp name="Argument.name">apiKey</stringProp>
+              <stringProp name="Argument.value">c60124cd83f24ad847f3d29bd40424cc</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="datadogUrl" elementType="Argument">
+              <stringProp name="Argument.name">datadogUrl</stringProp>
+              <stringProp name="Argument.value">https://api.datadoghq.com/api/</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logIntakeUrl" elementType="Argument">
+              <stringProp name="Argument.name">logIntakeUrl</stringProp>
+              <stringProp name="Argument.value">https://http-intake.logs.datadoghq.com/v1/input/</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="metricsMaxBatchSize" elementType="Argument">
+              <stringProp name="Argument.name">metricsMaxBatchSize</stringProp>
+              <stringProp name="Argument.value">200</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logsBatchSize" elementType="Argument">
+              <stringProp name="Argument.name">logsBatchSize</stringProp>
+              <stringProp name="Argument.value">500</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="sendResultsAsLogs" elementType="Argument">
+              <stringProp name="Argument.name">sendResultsAsLogs</stringProp>
+              <stringProp name="Argument.value">true</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="includeSubresults" elementType="Argument">
+              <stringProp name="Argument.name">includeSubresults</stringProp>
+              <stringProp name="Argument.value">true</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="samplersRegex" elementType="Argument">
+              <stringProp name="Argument.name">samplersRegex</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="customTags" elementType="Argument">
+              <stringProp name="Argument.name">customTags</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="classname">org.datadog.jmeter.plugins.DatadogBackendClient</stringProp>
+      </BackendListener>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
